@@ -7,34 +7,41 @@ export default function SignUp({navigation}) {
   const [phone, setPhone] = useState('');
   const [email, setEmail]= useState('');
   const [password, setPassword] = useState('');
-  return (
-    
+  const [confirmpassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(true);
+
+  return (  
     <View style={styles.container}>
       <Text style={styles.heading}>Create New Account</Text>
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
+          autoComplete='name'
           placeholder="Full Name"
           placeholderTextColor="white"
-          onChangeText={(name) => setName(name)}
+          onChangeText={text => setName(text)}
+          value={name}
         />
       </View>
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          textContentType="telephoneNumber"
-          placeholder="Phone Number"
+          autoComplete='tel'
           placeholderTextColor="white"
-          onChangeText={(phone) => setPhone(phone)}
+          placeholder="Phone"
+          onChangeText={text => setPhone(text)}
+          value={phone}
+          keyboardType="phone-pad"
         />
       </View>
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          textContentType="emailAddress"
-          placeholder="Email"
+            autoComplete='email'
           placeholderTextColor="white"
-          onChangeText={(email) => setEmail(email)}
+            placeholder="Email"
+            onChangeText={text => setEmail(text)}
+            value={email}
         />
       </View>
       <View style={styles.inputView}>
@@ -43,8 +50,9 @@ export default function SignUp({navigation}) {
           textContentType="password"
           placeholder="Password"
           placeholderTextColor="white"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
+          onChangeText={text => setPassword(text)}
+          value={password}
+          secureTextEntry={showPassword ? true : false}
         />
       </View>
       <View style={styles.inputView}>
@@ -53,10 +61,14 @@ export default function SignUp({navigation}) {
           textContentType="password"
           placeholder="Confirm Password"
           placeholderTextColor="white"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
+          onChangeText={text => setConfirmPassword(text)}
+          value={confirmpassword}
+          secureTextEntry={showPassword ? true : false}
         />
       </View>
+      <TouchableOpacity style={styles.button3} onPress={() => setShowPassword(!showPassword)}>
+        <Text style={styles.loginText}>{showPassword ? 'Show Password' : 'Hide Password'}</Text>
+        </TouchableOpacity>
       <TouchableOpacity style={styles.signupBtn} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity>
@@ -122,5 +134,16 @@ const styles = StyleSheet.create({
    marginTop:15,
    marginBottom:20,
    backgroundColor:"blue",
+ },
+ button3:
+ {
+   width:"30%",
+   borderRadius:10,
+   height:30,
+   alignItems:"center",
+   justifyContent:"center",
+   marginTop:0,
+   marginBottom:20,
+   backgroundColor:"grey",
  },
 });

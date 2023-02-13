@@ -1,8 +1,5 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Button } from 'react-native';
 import React, { useState } from 'react';
-import SignUp from './SignUp';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
  
 
 export default function Login({navigation}) {
