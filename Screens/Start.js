@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 
 
 export default function Start({navigation}) {
@@ -11,11 +10,11 @@ export default function Start({navigation}) {
       <View style={styles.imageView}>
         <ImageBackground source={require('../assets/bg_landing.jpeg')} style={{ width: 500, height: 500 }}/>
       </View>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('LoginScreen')}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
       <Text>OR</Text>
-      <TouchableOpacity style={styles.signupBtn} onPress={() => navigation.navigate('SignUp')}>
+      <TouchableOpacity style={styles.signupBtn} onPress={() => navigation.navigate('SignUpScreen')}>
         <Text style={styles.loginText}>Create A New Account</Text>
       </TouchableOpacity>
     </View>
